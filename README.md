@@ -28,14 +28,14 @@ Pigmented skin lesions refer to any skin abnormality that appears darker than th
 Range from benign moles to malignant melanoma.
 
 ### What are PSLs?
-<img src="images/psl.png" alt="Introduction Image" width="400">
+![Introduction Image](images/psl.png)
 
 ---
 
 ## Motivation
 According to the World Health Organization (WHO), skin cancer represents a considerable share of all cancer diagnoses globally, contributing significantly to cancer-related health burdens and fatalities.
-<!-- ![Global Report Image](images/global-absolute-number-of-melanoma.png)
-![Global Report Image](images/high-intensity-countries.png) -->
+![Global Report Image](images/global-absolute-number-of-melanoma.png)
+![Global Report Image](images/high-intensity-countries.png)
 <table>
   <tr>
     <td>
