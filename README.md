@@ -23,26 +23,23 @@ Joseph Adeola
 ---
 
 ## Introduction
-Pigmented skin lesions refer to any skin abnormality that appears darker than the surrounding area due to melanin or blood.
+Pigmented skin lesions refer to any skin abnormality that appears darker than the surrounding area due to melanin or blood. They range from benign moles to malignant melanoma.
 
-Range from benign moles to malignant melanoma.
-
-### What are PSLs?
 ![Introduction Image](images/psl.png)
 
 ---
 
 ## Motivation
 According to the World Health Organization (WHO), skin cancer represents a considerable share of all cancer diagnoses globally, contributing significantly to cancer-related health burdens and fatalities.
-![Global Report Image](images/global-absolute-number-of-melanoma.png)
-![Global Report Image](images/high-intensity-countries.png)
+<!-- ![Global Report Image](images/global-absolute-number-of-melanoma.png) -->
+<!-- ![Global Report Image](images/high-intensity-countries.png) -->
 <table>
   <tr>
     <td>
-      <img src="images/global-absolute-number-of-melanoma.png" alt="Global Report Image" width="400">
+      <img src="images/global-absolute-number-of-melanoma.png" alt="Global Report Image" width="700">
     </td>
     <td>
-      <img src="images/high-intensity-countries.png" alt="High Intensity Countries Image" width="400">
+      <img src="images/high-intensity-countries.png" alt="High Intensity Countries Image" width="700">
     </td>
   </tr>
 </table>
@@ -51,71 +48,68 @@ According to the World Health Organization (WHO), skin cancer represents a consi
 ## Background
 
 ### Traditional Diagnosis Technique
-![Traditional Diagnosis Image](images/psl.png)
+<img src="images/traditional-diagnosis.png" alt="Traditional Diagnosis Image" width="400">
 
 ### State-of-the-Art
-![State-of-the-Art Image](path/to/image)
+<table>
+  <tr>
+    <td>
+      <img src="images/dermoscopy.png" alt="Global Report Image" height="400">
+    </td>
+    <td>
+      <img src="images/tbp.png" alt="High Intensity Countries Image" height="400">
+    </td>
+  </tr>
+</table>
 
 ### Dermoscopy vs Clinical Image
-![Dermoscopy vs Clinical Image](path/to/image)
+<img src="images/dermoscopy_vs_clinical.png" alt="Dermoscopy vs Clinical Image" width="400">
 
----
-
-## Literature Review
-
-### Research Efforts
-![Research Efforts Image](path/to/image)
-
-### Gaps in Literature
-![Gaps in Literature Image](path/to/image)
-
----
 
 ## Methodology
 
 ### Data Acquisition Pipeline
-![Data Acquisition Pipeline Image](path/to/image)
+<img src="images/data-pipeline.png" alt="Data Acquisition Pipeline Image" width="400">
 
 ### Data Preprocessing
-![Data Preprocessing Image](path/to/image)
+<img src="gifs/non-orthogonal-removal.gif" alt="Data Preprocessing Image" width="400">
 
 ### Model Architecture Selection
-![Model Architecture Image](path/to/image)
+<img src="path/to/image" alt="Model Architecture Image" width="400">
 
 ### YOLOv8
-![YOLOv8 Image](path/to/image)
+<img src="path/to/image" alt="YOLOv8 Image" width="400">
 
 ### Segmentation Approach
-![Segmentation Approach Image](path/to/image)
+<img src="path/to/image" alt="Segmentation Approach Image" width="400">
 
 ### Model Ensemble
-![Model Ensemble Image](path/to/image)
+<img src="path/to/image" alt="Model Ensemble Image" width="400">
 
 ---
 
 ## Results
 
 ### Quantitative Performance of Canfield Baseline on Test Dataset
-![Quantitative Performance Image](path/to/image)
+<img src="path/to/image" alt="Quantitative Performance Image" width="400">
 
 ### Qualitative Performance of Canfield Baseline on Test Dataset
-![Qualitative Performance Image](path/to/image)
+<img src="path/to/image" alt="Qualitative Performance Image" width="400">
 
 ### Quantitative Performance Comparison of Detectors Test Dataset
-![Performance Comparison Image](path/to/image)
+<img src="path/to/image" alt="Performance Comparison Image" width="400">
 
 ### Qualitative Performance of Best Detector
-![Qualitative Performance Image](path/to/image)
+<img src="path/to/image" alt="Qualitative Performance Image" width="400">
 
 ### Attention-UNet Visualization for Skin Lesion Segmentation
-![Attention-UNet Image](path/to/image)
+<img src="path/to/image" alt="Attention-UNet Image" width="400">
 
 ### Quantitative Performance Comparison of Segmentation Models
-![Segmentation Models Comparison Image](path/to/image)
+<img src="path/to/image" alt="Segmentation Models Comparison Image" width="400">
 
 ### Qualitative Performance Comparison of Detector Ensemble Techniques
-![Detector Ensemble Techniques Image](path/to/image)
-
+<img src="path/to/image" alt="Detector Ensemble Techniques Image" width="400">
 ---
 
 ## Conclusion
