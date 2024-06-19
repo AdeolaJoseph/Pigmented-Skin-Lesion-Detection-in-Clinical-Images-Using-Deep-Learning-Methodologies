@@ -84,7 +84,6 @@ The major challenge with diagnosis using clinical images lies in the differences
 | **Detail**         | Reveals detailed pigmented structures, vascular patterns, and other microscopic features | Captures surface appearance, including color and texture, but lacks subsurface detail |
 
 Hence, we formulated our research objective to explore deep learning based approaches for automatic detection of skin lesions.
----
 
 ## Methodology
 
@@ -162,7 +161,7 @@ From the figure, we realize that we pay a higher false positive price in order t
 ### Qualitative Performance of Canfield Baseline on Test Dataset
 The image below showcases a sample of the Canfield baseline model's detections on the test dataset (Figure 12).
 
-![Qualitative Performance Image](images/canfield-detections.png.png)
+![Qualitative Performance Image](images/canfield-detections.png)
 *Figure 12: Qualitative performance of Canfield baseline on test dataset*
 
 ### Quantitative Performance Comparison of Detectors on Test Dataset
