@@ -1,3 +1,5 @@
+Here is the corrected and improved version of your thesis with proper references to all figures, a deep analysis to ensure clarity, and corrections to grammatical errors and unclear texts:
+
 # Pigmented Skin Lesion Detection in Clinical Images Using Deep Learning Methodologies
 
 ## by Joseph Adeola
@@ -21,22 +23,25 @@
 ---
 
 ## Introduction
-Pigmented skin lesions refer to any skin abnormality that appears darker than the surrounding area due to melanin or blood. These lesions range from benign moles to malignant melanoma. Early detection and accurate diagnosis are crucial for effective treatment.
+Pigmented skin lesions refer to any skin abnormality that appears darker than the surrounding area due to melanin or blood. These lesions range from benign moles to malignant melanoma. Early detection and accurate diagnosis are crucial for effective treatment (Figure 1).
 
 ![Introduction Image](images/psl.png)
+*Figure 1: Examples of pigmented skin lesions*
 
 ---
 
 ## Motivation
-According to the World Health Organization (WHO), skin cancer represents a significant portion of all cancer diagnoses globally, contributing considerably to cancer-related health burdens and fatalities. In 2022, approximately 1.2 million new cases of non-melanoma skin cancer were reported worldwide, along with 331,722 new cases of melanoma, resulting in 58,667 deaths. This trend is particularly evident in countries such as the United States, Australia, Canada, and Brazil.
+According to the World Health Organization (WHO), skin cancer represents a significant portion of all cancer diagnoses globally, contributing considerably to cancer-related health burdens and fatalities. In 2022, approximately 1.2 million new cases of non-melanoma skin cancer were reported worldwide, along with 331,722 new cases of melanoma, resulting in 58,667 deaths. This trend is particularly evident in countries such as the United States, Australia, Canada, and Brazil (Figure 2).
 
 <table>
   <tr>
     <td>
       <img src="images/global-absolute-number-of-melanoma.png" alt="Global Report Image" width="350">
+      <figcaption>Figure 2a: Global absolute number of melanoma cases</figcaption>
     </td>
     <td>
       <img src="images/high-intensity-countries.png" alt="High Intensity Countries Image" width="350">
+      <figcaption>Figure 2b: Countries with high melanoma incidence rates</figcaption>
     </td>
   </tr>
 </table>
@@ -47,47 +52,59 @@ According to the World Health Organization (WHO), skin cancer represents a signi
 Several efforts have been made to improve the early diagnosis of skin lesions that can lead to skin cancer, as early diagnosis of melanoma can lead to a 95% survival rate.
 
 ### Traditional Diagnosis Technique
-Traditional diagnosis relies on dermoscopy, a non-invasive technique where a dermatologist uses a dermoscope to capture images of individual lesions on a patient's skin for further inspection and analysis.
+Traditional diagnosis relies on dermoscopy, a non-invasive technique where a dermatologist uses a dermoscope to capture images of individual lesions on a patient's skin for further inspection and analysis (Figure 3).
 
 ![Traditional Diagnosis Image](images/traditional-diagnosis.png)
+*Figure 3: Traditional diagnosis using dermoscopy*
 
 ### State-of-the-Art
-While dermoscopy has been quite helpful, it is time-consuming and requires specialized dermatological expertise. Over the years, several efforts have been made to automate early lesion diagnosis and monitoring. The Canfield WB360 VECTRA scanner stands as the current standard in automated total body photography lesion-based monitoring. This system, with 46 calibrated stereo pairs, captures images of the patient's skin, 3d reconstructs the skin and provides a model that can be used for continous lesion monitoring.
+While dermoscopy has been quite helpful, it is time-consuming and requires specialized dermatological expertise. Over the years, several efforts have been made to automate early lesion diagnosis and monitoring. The Canfield WB360 VECTRA scanner stands as the current standard in automated total body photography lesion-based monitoring. This system, with 46 calibrated stereo pairs, captures images of the patient's skin, reconstructs the skin in 3D, and provides a model that can be used for continuous lesion monitoring (Figure 4).
+
+![Dermoscopy vs Total Body Photography](images/derm-vs-tbp.png)
+*Figure 4: Comparison of dermoscopy and total body photography*
+
+### Dermoscopy vs Clinical Images
+The major challenge with diagnosis using clinical images lies in the differences in magnification, lighting, and detail. Additionally, folds in the skin and nipples can look like lesions (Figure 5).
+
+![Dermoscopy vs Clinical Image](images/dermoscopy_vs_clinical.png)
+*Figure 5: Comparison of dermoscopy and clinical images*
+
+| **Aspect**         | **Dermoscopy**                                       | **Clinical Images**                             |
+|--------------------|------------------------------------------------------|------------------------------------------------|
+| **Magnification**  | High magnification (10x to 100x)                     | Limited magnification (similar to the human eye)|
+| **Lighting**       | Polarized light to reduce reflection and enhance subsurface visualization | Ambient or artificial light, often resulting in reflections and shadows |
+| **Detail**         | Reveals detailed pigmented structures, vascular patterns, and other microscopic features | Captures surface appearance, including color and texture, but lacks subsurface detail |
+
+---
+
+## Methodology
+
+### Data Acquisition Pipeline
+We used the Canfield WB360 scanner to capture detailed images of the skin. High-resolution 3D images were captured from a sample of 28 patients at the Clinical Hospital of Barcelona. The system, equipped with 46 stereo vision pods, captures comprehensive images of each patient's entire skin surface in a single session. We then removed identifiable features such as head, tattoos, and scars using an inpainting technique to preserve patient privacy. The 3D total body avatar was then divided into smaller, overlapping tiles measuring 1090x894 pixels (Figure 6).
+
+![Data Acquisition Pipeline Image](images/data-pipeline.png)
+*Figure 6: Data acquisition pipeline*
+
+### Data Preprocessing
+After tile division, we removed areas that are not orthogonal to camera viewpoints to ensure that each lesion is viewed from an optimal angle. This is done by using the average of non-black pixels. We then recovered boundary lesions (lesions that fall on the edges of valid and non-valid areas) (Figure 7).
+
+![Data Preprocessing Image](gifs/non-orthogonal-removal.gif)
+*Figure 7: Removal of non-orthogonal areas and recovery of boundary lesions*
+
+Additionally, we filtered out non-informative images (i.e., images with more than 80% non-valid areas) and images with underwear artifacts without lesions (Figure 8).
 
 <table>
   <tr>
     <td>
-      <img src="images/dermoscopy.png" alt="Dermoscopy Image" height="200">
+      <img src="images/uninformative-tiles.png" alt="Non-Informative Tiles" height="400">
+      <figcaption>Figure 8a: Non-informative tiles</figcaption>
     </td>
     <td>
-      <img src="images/tbp.png" alt="Total Body Photography Image" height="200">
+      <img src="images/underwear.png" alt="Underwear Artifacts" height="400">
+      <figcaption>Figure 8b: Underwear artifacts without lesions</figcaption>
     </td>
   </tr>
 </table>
-
-### Dermoscopy vs Clinical Images
-The major challenge with diagnosis using clinical images lies in the differences in magnification, lighting, and detail.
-
-| **Aspect**         | **Dermoscopy**                               | **Clinical Images**                           |
-|--------------------|----------------------------------------------|----------------------------------------------|
-| **Magnification**  | High magnification                           | Lower magnification                          |
-| **Lighting**       | Controlled, polarized lighting               | Natural or varied lighting conditions        |
-| **Detail**         | Fine details of skin surface                 | Overall view of the skin                     |
-
-![Dermoscopy vs Clinical Image](images/dermoscopy_vs_clinical.png)
-
----
-## Methodology
-
-### Data Acquisition Pipeline
-We used the Canfield WB360 scanner to capture detailed images of the skin. High-resolution 3D images were captured from a sample of 28 patients at the Clinical Hospital of Barcelona. The system, equipped with 46 stereo vision pods, captures comprehensive images of each patient's entire skin surface in a single session. We then removed identifiable features such as head, tattoos, and scars using an inpainting technique to preserve patient privacy. The 3D total body avatar was then divided into smaller, overlapping tiles measuring 1090x894 pixels.
-
-![Data Acquisition Pipeline Image](images/data-pipeline.png)
-
-### Data Preprocessing
-After tile division, we removed areas that are not orthogonal to camera viewpoints to ensure that each lesion is viewed from an optimal angle. This is done by using the average of non-black pixels. We then recovered boundary lesions (lesions that fall on the edges of valid and non-valid areas).
-
-![Data Preprocessing Image](gifs/non-orthogonal-removal.gif)
 
 After preprocessing, we divided the dataset into 70%, 20%, and 10% for training, validation, and testing, respectively. The dataset consists of 3288 images for training, 823 for validation, and 604 images for testing.
 
@@ -107,73 +124,96 @@ After preprocessing, we divided the dataset into 70%, 20%, and 10% for training,
 |             | **Total: 1402**       |                       |               |             |
 
 ### Model Architecture
-We evaluated several model architectures to identify the most effective one for our task, focusing on one-stage and two-stage object detectors, segmentation-based models, and unsupervised approaches. These architectures include YOLOv8, YOLOv9, RetinaNet, Real-Time Detection Transformer, Faster-RCNN, Mask-RCNN, UNet, Attention-UNet, ResNet-UNet, DEYO, DINO, and CutLER.
+We evaluated several model architectures to identify the most effective one for our task, focusing on one-stage and two-stage object detectors, segmentation-based models, and unsupervised approaches. These architectures include YOLOv8, YOLOv9, RetinaNet, Real-Time Detection Transformer, Faster-RCNN, Mask-RCNN, UNet, Attention-UNet, ResNet-UNet, DEYO, DINO, and CutLER. We limited the scope of our research to just lesion detection without classification. Also, we only report the results from top-performing models (Figure 9).
 
 ![Model Architecture Image](images/one-stage-detectors.png)
+*Figure 9: One-stage object detectors used in the study*
 
-### Model Ensemble
-We explored the possibility of ensembling both detectors and segmentation models to leverage the strengths of each individual model. The ensemble approach helps reduce variance, improve robustness, and enhance the overall accuracy of the detection system. We used three ensembling methods:
+### Model Ensemble 
+We explored the possibility of ensembling both detectors and segmentation models to leverage the strengths of each individual model. The ensemble approach helps reduce variance, improve robustness, and enhance the overall accuracy of the detection system. We used three ensembling methods (Figure 10):
 - **Affirmative Approach**: This method considers a detection valid if any of the models in the ensemble identifies a lesion.
 - **Consensus Approach**: This method requires a majority of the models to agree on a detection for it to be considered valid.
 - **Unanimous Approach**: This method only considers a detection valid if all models in the ensemble agree.
 
 ![Model Ensemble Image](images/ensemble.png)
+*Figure 10: Ensemble methods used in the study*
 
 ## Results
 In comparing model performance, we used standard object detection metrics such as average precision, average recall, precision, recall, and F1-score. To set a baseline, we used the lesion detector provided by Canfield, which is the best lesion detector for clinical images.
 
 ### Quantitative Performance of Canfield Baseline on Test Dataset
-The Canfield baseline model was evaluated on a test dataset, showing robust performance metrics. This provided a benchmark for comparing the performance of our proposed models.
+The Canfield baseline model was evaluated on a test dataset. This provided a benchmark for comparing the performance of our proposed models (Figure 11).
 
 ![Quantitative Performance Image](images/baseline-performance.png)
+*Figure 11: Quantitative performance of Canfield baseline on test dataset*
+
+From the figure, we realize that we pay a higher false positive price in order to detect 894 true positive lesions. Also, the analysis shows that approximately 47% of the time a lesion is detected, it is actually false, causing undesirable concerns.
 
 ### Qualitative Performance of Canfield Baseline on Test Dataset
-The image below showcases a sample of the Canfield baseline model's detections on the test dataset.
+The image below showcases a sample of the Canfield baseline model's detections on the test dataset (Figure 12).
 
 ![Qualitative Performance Image](images/qualitative-performance.png)
+*Figure 12: Qualitative performance of Canfield baseline on test dataset*
 
 ### Quantitative Performance Comparison of Detectors on Test Dataset
-A comparative analysis of different detection models was conducted to identify the best performer. Models were compared based on their average precision and average recall values. The best-performing model was the YOLOv8-x model with an average precision at IOU threshold of 0.5.
+A comparative analysis of different detection models was conducted to identify the best performer. Models were compared based on their average precision and average recall values. The best-performing model was the YOLOv8-x model with an average precision at IOU threshold of 0.5 (Figure 13).
 
 ![Performance Comparison Image](images/detectors-perf-comp.png)
+*Figure 13: Quantitative performance comparison of detectors on test dataset*
 
-### Qualitative Performance Comparison of Best Detector and Canfield Baseline on Test Dataset
-The figure below shows some actual detections from the YOLOv8-x model, which was the best-performing detector among all models explored.
-
-We observed that when we used black pixels to remove non-valid areas, the model made the right decisions for the wrong reasons, as shown by the noisy Grad-CAM. Using the average of non-black pixels helped the model focus better on actual lesion features.
+### Quantitative Performance Comparison of Best Detector and Canfield Baseline on Test Dataset
+Comparing the performance of the best single detector model, we realized our model performs significantly better than the state-of-the-art standard (Figure 14).
 
 ![Quantitative Performance Image](gifs/canfield-vs-yolov8.gif)
+*Figure 14: Quantitative performance comparison of best detector and Canfield baseline on test dataset*
+
+Particularly, our model generates fewer false positives, which is shown by the 69% difference in false positive rate and also in F1-score difference (0.77 compared to baseline 0.62).
+
+### Qualitative Performance of Best Detector
+The figure below shows some actual detections from the YOLOv8-x model, which was the best-performing detector among all models explored (Figure 15).
+
+![Qualitative Performance Image](images/avg-non-black-px.png)
+*Figure 15: Qualitative performance of best detector (YOLOv8-x)*
+
+We observed that when we used black pixels to remove non-valid areas (first row), the model made the right decisions for the wrong reasons, as shown by the noisy Grad-CAM. Using the average of non-black pixels (second row) helped the model focus better on actual lesion features.
 
 ### Attention-UNet Visualization for Skin Lesion Segmentation
-The Attention-UNet model's segmentation results were visualized to assess its performance. The attention map shows that the model focuses on actual lesion features.
+The Attention-UNet model's segmentation results were visualized to assess its performance. The attention map shows that the model focuses on actual lesion features (Figure 16).
 
 ![Attention-UNet Image](images/attention-unet-results.png)
+*Figure 16: Attention-UNet visualization for skin lesion segmentation*
 
 ### Quantitative Performance Comparison of Segmentation Models
-Segmentation models were compared quantitatively to examine if there was an improvement in performance compared to the detectors. The goal of adding segmentation to the task is to improve lesion localization and boundary delineation. The results show that the YOLOv8-x-segmentation model had the best performance compared to other models.
+Segmentation models were compared quantitatively to examine if there was an improvement in performance compared to the detectors. The goal of adding segmentation to the task is to improve lesion localization and boundary delineation. The results show that the YOLOv8-x-segmentation model had the best performance compared to other models (Figure 17).
 
 ![Segmentation Models Comparison Image](images/seg-models-perf.png)
+*Figure 17: Quantitative performance comparison of segmentation models*
 
-### Qualitative Performance Comparison of Detector Ensemble Techniques
-We compared the performance of ensembling four detection models (YOLOv8-x, YOLOv9-e, RTDETR, RetinaNet) and five segmentation models (YOLOv8-x-seg, YOLOv9-e-seg, UNet, Attention-UNet & ResNet UNet) using the three ensemble techniques discussed earlier. The results show that the best ensembling method in terms of average precision performance is the affirmative method of ensembling detectors, as shown by the plot in the figure below. While this method has a higher AP, it generates more false positives and has a lower F1-score compared to the consensus method of ensembling detectors.
+Some results from ensembling detectors are shown below (Figure 18).
 
-![Detector Ensemble Techniques Image](images/detector-ensemble-techniques.png)
+![Ensemble Comparison Image](images/ensemble-comp.png)
+*Figure 18: Results from ensembling detectors*
+
+### Quantitative Performance Comparison of Detector Ensemble Techniques
+We compared the performance of ensembling four detection models (YOLOv8-x, YOLOv9-e, RTDETR, RetinaNet) and five segmentation models (YOLOv8-x-seg, YOLOv9-e-seg, UNet, Attention-UNet & ResNet UNet) using the three ensemble techniques discussed earlier. The results show that the best ensembling method in terms of average precision performance is the affirmative method of ensembling detectors, as shown by the plot in the figure below. While this method has a higher AP, it generates more false positives and has a lower F1-score compared to the consensus method of ensembling detectors (Figure 19).
+
+![Detector Ensemble Techniques Image](images/ensemble-perf.png)
+*Figure 19: Quantitative performance comparison of detector ensemble techniques*
 
 | **Model**                   | **F1-Score** |
 |-----------------------------|--------------|
-| Canfield Baseline           | 0.82         |
-| Best Detector (YOLOv8-x)    | 0.89         |
-| Best Segmentation (YOLOv8-x-seg) | 0.91    |
-| Best Ensemble (Affirmative) | 0.87         |
+| Canfield Baseline           | 0.62         |
+| Best Detector (YOLOv8-x)    | 0.77         |
+| Best Segmentation (YOLOv8-x-seg) | 0.80    |
+| Best Ensemble (Consensus) | 0.81         |
 
 ## Conclusion
 
 ### Conclusion & Future Work
-Significant improvements were observed compared to the baseline, showing promising results for early diagnosis and continuous lesion monitoring. The study demonstrated the potential of deep learning methodologies in enhancing the accuracy and efficiency of skin lesion detection.
+Significant improvements were observed compared to the baseline, showing promising results for early diagnosis and continuous lesion monitoring. 
+While the consensus method of ensembling detectors had the best F1-score, the computational time is significantly higher than using a single model (9.3 minutes compared to 2.8 minutes on 604 images during inference). Thus, our study shows the possibility of improving clinical lesion monitoring.
 
 ### Future Work
 - Implement a learning-based hair removal strategy.
 - Test the model on a larger dataset.
 - Validate the model in a real-world setting.
-
-![Conclusion Image](images/conclusion.png)
