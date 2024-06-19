@@ -1,5 +1,3 @@
-Here is the corrected and improved version of your thesis with proper references to all figures, a deep analysis to ensure clarity, and corrections to grammatical errors and unclear texts:
-
 # Pigmented Skin Lesion Detection in Clinical Images Using Deep Learning Methodologies
 
 ## by Joseph Adeola
@@ -93,7 +91,7 @@ After tile division, we removed areas that are not orthogonal to camera viewpoin
 
 Additionally, we filtered out non-informative images (i.e., images with more than 80% non-valid areas) and images with underwear artifacts without lesions (Figure 8).
 
-<table>
+<!-- <table>
   <tr>
     <td>
       <img src="images/uninformative-tiles.png" alt="Non-Informative Tiles" height="400">
@@ -104,8 +102,9 @@ Additionally, we filtered out non-informative images (i.e., images with more tha
       <figcaption>Figure 8b: Underwear artifacts without lesions</figcaption>
     </td>
   </tr>
-</table>
-
+</table> -->
+![Data Preprocessing Image](images/artifacts.png)
+*Figure 7: Data issues*
 After preprocessing, we divided the dataset into 70%, 20%, and 10% for training, validation, and testing, respectively. The dataset consists of 3288 images for training, 823 for validation, and 604 images for testing.
 
 | **Dataset** | **Number of Lesions** | **Distribution (%)** | **Mean (mm)** | **SD (mm)** |
