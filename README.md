@@ -4,7 +4,6 @@
   <img src="logos/ifros.png" height="100"/>
 </p>
 
-
 # Pigmented Skin Lesion Detection in Clinical Images Using Deep Learning Methodologies
 
 ### Joseph Adeola
@@ -115,7 +114,7 @@ Additionally, we filtered out non-informative images (i.e., images with more tha
   </tr>
 </table> -->
 ![Data Preprocessing Image](images/artifacts.png)
-*Figure 7: Data issues*
+*Figure 8: Data issues*
 After preprocessing, we divided the dataset into 70%, 20%, and 10% for training, validation, and testing, respectively. The dataset consists of 3288 images for training, 823 for validation, and 604 images for testing.
 
 | **Dataset** | **Number of Lesions** | **Distribution (%)** | **Mean (mm)** | **SD (mm)** |
