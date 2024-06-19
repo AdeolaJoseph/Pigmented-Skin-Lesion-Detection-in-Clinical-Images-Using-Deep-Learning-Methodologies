@@ -31,6 +31,15 @@ Pigmented skin lesions refer to any skin abnormality that appears darker than th
 
 ## Motivation
 According to the World Health Organization (WHO), skin cancer represents a considerable share of all cancer diagnoses globally, contributing significantly to cancer-related health burdens and fatalities.
+
+ Globally, the incidence of skin cancer is on the rise, highlighting it as a profound health con
+cern that necessitates improved methods for diagnosis and treatment. According to the World
+ Health Organization (WHO), skin cancer represents a considerable share of all cancer diagnoses
+ globally, contributing significantly to cancer-related health burdens and fatalities. In 2022, there
+ were approximately 1.2 million new cases of non-melanoma skin cancer worldwide, along
+ with 331,722 new cases of melanoma, a more aggressive form of skin cancer, resulting in 58,667
+ deaths. This trend is particularly evident in countries such as the United States, Australia,
+ Canada, and Brazil, where the frequency of skin cancer cases continues to increase.
 <!-- ![Global Report Image](images/global-absolute-number-of-melanoma.png) -->
 <!-- ![Global Report Image](images/high-intensity-countries.png) -->
 <table>
@@ -46,11 +55,17 @@ According to the World Health Organization (WHO), skin cancer represents a consi
 ---
 
 ## Background
-
+Several efforts have been made to improve the early diagnosis of skin lesions that can lead to skin cancers, since early diagnosis of melanoma of the skin 
+can lead to 95% survival
 ### Traditional Diagnosis Technique
+Traditional diagnosis techniques relies on dermoscopy. Dermoscopy is a non-invasive techique where a dermatologist uses a device called a dermoscope to capture
+images of individual lesions on patient's skin for further inspection and analysis later.
 <!-- <img src="images/traditional-diagnosis.png" alt="Traditional Diagnosis Image" width="700"> -->
 ![Traditional Diagnosis Image](images/traditional-diagnosis.png)
 ### State-of-the-Art
+While dermoscopy has been quite helpful, it is time consuming and requires specialized dermatological expertise, so over the years, several efforts have been made
+by researchers and organisations to automate early lesion diagnosis and monitoring. Of all these, the Canfield WB360 VECTRA scanner stands as the current
+standard in alternative automated total body photography lesion based monitoring. This system with 46 calibrated stereo pairs, captures images of the patients skin and re
 <table>
   <tr>
     <td>
@@ -63,53 +78,57 @@ According to the World Health Organization (WHO), skin cancer represents a consi
 </table>
 
 ### Dermoscopy vs Clinical Image
+The major challenge with diagnosis using clinical images lies in 
 <!-- <img src="images/dermoscopy_vs_clinical.png" alt="Dermoscopy vs Clinical Image" width="400"> -->
 ![Dermoscopy vs Clinical Image](images/dermoscopy_vs_clinical.png)
+ADD A TABLE SHOWING DIFFERENCE BETWEEN DERMOSCOPY AND CLINICAL IMAGES - DONT WRITE TOO MUCH, JUST THREE DIFERENCES, MAGNIFICATION, LIGHTING AND DETAIL
 
 ## Methodology
 
 ### Data Acquisition Pipeline
+We used the CanfieldWB360 scanner
 <img src="images/data-pipeline.png" alt="Data Acquisition Pipeline Image" width="400">
 
 ### Data Preprocessing
 <img src="gifs/non-orthogonal-removal.gif" alt="Data Preprocessing Image" width="400">
 
 ### Model Architecture Selection
-<img src="path/to/image" alt="Model Architecture Image" width="400">
+<img src="images/one-stage-detectors.png" alt="Model Architecture Image" width="400">
 
 ### YOLOv8
-<img src="path/to/image" alt="YOLOv8 Image" width="400">
+<img src="images/yolov8.png" alt="YOLOv8 Image" width="400">
 
 ### Segmentation Approach
-<img src="path/to/image" alt="Segmentation Approach Image" width="400">
+<img src="images/attn-unet-model.png" alt="Segmentation Approach Image" width="400">
+
 
 ### Model Ensemble
-<img src="path/to/image" alt="Model Ensemble Image" width="400">
+<img src="images/ensemble.png" alt="Model Ensemble Image" width="400">
 
 ---
 
 ## Results
 
 ### Quantitative Performance of Canfield Baseline on Test Dataset
-<img src="path/to/image" alt="Quantitative Performance Image" width="400">
+<img src="images/baseline-performance.png" alt="Quantitative Performance Image" width="400">
 
 ### Qualitative Performance of Canfield Baseline on Test Dataset
-<img src="path/to/image" alt="Qualitative Performance Image" width="400">
+<img src="" alt="Qualitative Performance Image" width="400">
 
 ### Quantitative Performance Comparison of Detectors Test Dataset
-<img src="path/to/image" alt="Performance Comparison Image" width="400">
+<img src="images/detectors-perf-comp.png" alt="Performance Comparison Image" width="400">
 
 ### Qualitative Performance of Best Detector
-<img src="path/to/image" alt="Qualitative Performance Image" width="400">
+<img src="gifs/canfield-vs-yolov8.gif" alt="Qualitative Performance Image" width="400">
 
 ### Attention-UNet Visualization for Skin Lesion Segmentation
-<img src="path/to/image" alt="Attention-UNet Image" width="400">
+<img src="images/attention-unet-results.png" alt="Attention-UNet Image" width="400">
 
 ### Quantitative Performance Comparison of Segmentation Models
-<img src="path/to/image" alt="Segmentation Models Comparison Image" width="400">
+<img src="images/seg-models-perf.png" alt="Segmentation Models Comparison Image" width="400">
 
 ### Qualitative Performance Comparison of Detector Ensemble Techniques
-<img src="path/to/image" alt="Detector Ensemble Techniques Image" width="400">
+<img src="image" alt="Detector Ensemble Techniques Image" width="400">
 ---
 
 ## Conclusion
