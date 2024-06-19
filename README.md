@@ -1,12 +1,18 @@
+![Logo1](logos/unizg-logo.png) ![Logo2](logos/udg_logo.png) ![Logo3](logos/ifros.png)
+
 # Pigmented Skin Lesion Detection in Clinical Images Using Deep Learning Methodologies
 
-## by Joseph Adeola
+### Joseph Adeola
 
-### Advisors
-- Prof. Rafael Garcia - ViCOROB, University of Girona
-- Asst Prof. Tamara Petrovic - FER, University of Zagreb
+#### Erasmus Mundus Joint Master in Intelligent Field Robotic Systems Thesis, 2024
 
-### Erasmus Mundus Joint Master in Intelligent Field Robotic Systems Thesis 2024
+##### Advisors
+- Prof. Rafael Garcia<sup>1</sup>
+- Asst Prof. Tamara Petrovic<sup>2</sup>
+
+##### Affiliations
+<sup>1</sup> ViCOROB, University of Girona  
+<sup>2</sup> FER, University of Zagreb
 
 ---
 
@@ -151,7 +157,7 @@ From the figure, we realize that we pay a higher false positive price in order t
 ### Qualitative Performance of Canfield Baseline on Test Dataset
 The image below showcases a sample of the Canfield baseline model's detections on the test dataset (Figure 12).
 
-![Qualitative Performance Image](images/qualitative-performance.png)
+![Qualitative Performance Image](images/canfield-detections.png.png)
 *Figure 12: Qualitative performance of Canfield baseline on test dataset*
 
 ### Quantitative Performance Comparison of Detectors on Test Dataset
@@ -188,16 +194,19 @@ Segmentation models were compared quantitatively to examine if there was an impr
 ![Segmentation Models Comparison Image](images/seg-models-perf.png)
 *Figure 17: Quantitative performance comparison of segmentation models*
 
-Some results from ensembling detectors are shown below (Figure 18).
+### Quantitative Performance Comparison of Detector Ensemble Techniques
+We compared the performance of ensembling four detection models (YOLOv8-x, YOLOv9-e, RTDETR, RetinaNet) and five segmentation models (YOLOv8-x-seg, YOLOv9-e-seg, UNet, Attention-UNet & ResNet UNet) using the three ensemble techniques discussed earlier. 
+The results show that the best ensembling method in terms of average precision performance is the affirmative method of ensembling detectors, as shown by the plot in the figure below. While this method has a higher AP, it generates more false positives and has a lower F1-score compared to the consensus method of ensembling detectors (Figure 19).
+
+![Detector Ensemble Techniques Image](images/ensemble-perf.png)
+*Figure 18: Quantitative performance comparison of detector ensemble techniques*
+
+Some results from ensembling detectors are shown below (Figure 19).
 
 ![Ensemble Comparison Image](images/ensemble-comp.png)
 *Figure 18: Results from ensembling detectors*
 
-### Quantitative Performance Comparison of Detector Ensemble Techniques
-We compared the performance of ensembling four detection models (YOLOv8-x, YOLOv9-e, RTDETR, RetinaNet) and five segmentation models (YOLOv8-x-seg, YOLOv9-e-seg, UNet, Attention-UNet & ResNet UNet) using the three ensemble techniques discussed earlier. The results show that the best ensembling method in terms of average precision performance is the affirmative method of ensembling detectors, as shown by the plot in the figure below. While this method has a higher AP, it generates more false positives and has a lower F1-score compared to the consensus method of ensembling detectors (Figure 19).
-
-![Detector Ensemble Techniques Image](images/ensemble-perf.png)
-*Figure 19: Quantitative performance comparison of detector ensemble techniques*
+Finally, compare the best individual model, the best single detection model and the best segmentation model with the baseline.
 
 | **Model**                   | **F1-Score** |
 |-----------------------------|--------------|
