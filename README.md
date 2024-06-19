@@ -83,6 +83,7 @@ The major challenge with diagnosis using clinical images lies in the differences
 | **Lighting**       | Polarized light to reduce reflection and enhance subsurface visualization | Ambient or artificial light, often resulting in reflections and shadows |
 | **Detail**         | Reveals detailed pigmented structures, vascular patterns, and other microscopic features | Captures surface appearance, including color and texture, but lacks subsurface detail |
 
+Hence, we formulated our research objective to explore deep learning based approaches for automated detection of skin lesions.
 ---
 
 ## Methodology
