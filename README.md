@@ -1,4 +1,9 @@
-![Logo1](logos/unizg-logo.png) ![Logo2](logos/udg_logo.png) ![Logo3](logos/ifros.png)
+<p align="left">
+  <img src="logos/unizg-logo.png" height="100"/>
+  <img src="logos/udg_logo.png" height="100"/>
+  <img src="logos/ifros.png" height="100"/>
+</p>
+
 
 # Pigmented Skin Lesion Detection in Clinical Images Using Deep Learning Methodologies
 
@@ -206,7 +211,8 @@ Some results from ensembling detectors are shown below (Figure 19).
 ![Ensemble Comparison Image](images/ensemble-comp.png)
 *Figure 18: Results from ensembling detectors*
 
-Finally, compare the best individual model, the best single detection model and the best segmentation model with the baseline.
+Finally, we compare the best individual model, the best single detection model and the best segmentation model with the baseline.
+
 
 | **Model**                   | **F1-Score** |
 |-----------------------------|--------------|
