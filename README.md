@@ -48,8 +48,8 @@ According to the World Health Organization (WHO), skin cancer represents a consi
 ## Background
 
 ### Traditional Diagnosis Technique
-<img src="images/traditional-diagnosis.png" alt="Traditional Diagnosis Image" width="400">
-
+<!-- <img src="images/traditional-diagnosis.png" alt="Traditional Diagnosis Image" width="700"> -->
+![Traditional Diagnosis Image](images/traditional-diagnosis.png)
 ### State-of-the-Art
 <table>
   <tr>
@@ -63,8 +63,8 @@ According to the World Health Organization (WHO), skin cancer represents a consi
 </table>
 
 ### Dermoscopy vs Clinical Image
-<img src="images/dermoscopy_vs_clinical.png" alt="Dermoscopy vs Clinical Image" width="400">
-
+<!-- <img src="images/dermoscopy_vs_clinical.png" alt="Dermoscopy vs Clinical Image" width="400"> -->
+![Dermoscopy vs Clinical Image](images/dermoscopy_vs_clinical.png)
 
 ## Methodology
 
