@@ -4,7 +4,7 @@
   <img src="logos/ifros.png" height="50"/>
 </p>
 
-# Pigmented Skin Lesion Detection in Clinical Images Using Deep Learning Methodologies
+<!-- # Pigmented Skin Lesion Detection in Clinical Images Using Deep Learning Methodologies -->
 
 ### Joseph Adeola
 
